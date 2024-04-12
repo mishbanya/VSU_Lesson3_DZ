@@ -1,6 +1,7 @@
 package com.example.vsu_lesson3_dz
 
 import Page2Adapter
+import Page3Adapter
 import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
@@ -24,15 +25,24 @@ class MainActivity : AppCompatActivity(), OnClickListener{
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        var data: MutableList<Launch> = mutableListOf()
-        data.add(Launch("Starlink 2", "CCAES SLC 40", "16-12-2014", R.drawable.falcon1))
-        data.add(Launch("DemoSat", "AAAES SLC 40", "06-07-2018", R.drawable.demosat))
-        data.add(Launch("Falcon 9 Test", "CCAES SEC 40", "18-03-2019", R.drawable.falcon9))
-        data.add(Launch("CRS - 2", "CAAES SLC 40", "18-12-2019", R.drawable.crs2))
+        var data2: MutableList<Launch> = mutableListOf()
+        data2.add(Launch("Starlink 2", "CCAES SLC 40", "16-12-2014", R.drawable.falcon1))
+        data2.add(Launch("DemoSat", "AAAES SLC 40", "06-07-2018", R.drawable.demosat))
+        data2.add(Launch("Falcon 9 Test", "CCAES SEC 40", "18-03-2019", R.drawable.falcon9))
+        data2.add(Launch("CRS - 2", "CAAES SLC 40", "18-12-2019", R.drawable.crs2))
 
-        val page2Adapter = Page2Adapter(this, R.layout.page2item, data)
-        val listView = findViewById<ListView>(R.id.page2)
-        listView.adapter = page2Adapter
+        val page2Adapter = Page2Adapter(this, R.layout.page2item, data2)
+        val listView2 = findViewById<ListView>(R.id.page2)
+        listView2.adapter = page2Adapter
+
+        var data3: MutableList<Rocket> = mutableListOf()
+        data3.add(Rocket("Falcon 1", false, R.drawable.falcon1))
+        data3.add(Rocket("Falcon 9", true, R.drawable.f9))
+        data3.add(Rocket("Big Falcon Rocket", false, R.drawable.falcon9))
+
+        val page3Adapter = Page3Adapter(this, R.layout.page3item, data3)
+        val listView3 = findViewById<ListView>(R.id.page3)
+        listView3.adapter = page3Adapter
 
         val btn1: Button = findViewById(R.id.button1)
         val btn2: Button = findViewById(R.id.button2)
